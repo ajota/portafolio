@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio web-side</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <div id="loader">
+      <div class="logo-loader-container">
+        <img src="img/logo.svg" class="logo-outline" alt="logo borde" />
+        <div class="logo-fill-box">
+          <img src="img/logo.svg" class="logo-solid" alt="logo lleno" />
+        </div>
+      </div>
+    </div>
+
+    <header class="top-nav">
+      <img src="img/logo.svg" class="nav-logo" alt="logo" />
+      <img src="img/menu-icon.svg" class="nav-menu" alt="menu" />
+    </header>
+
+    <section id="home">
+      <img src="img/banner.png" class="home-bg" alt="Fondo" />
+      <div class="dark-overlay"></div>
+
+      <div class="scroll-down-center">
+        <img src="img/scroll-indicator.svg" alt="Bajar" />
+      </div>
+
+      <div class="carrusel-corner">
+        <div class="einstein-container">
+          <img src="img/Carrusel.png" class="einstein-img" alt="Einstein" />
+
+          <div class="einstein-concealer"></div>
+
+          <div class="einstein-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-container">
+        <img src="img/About%20me.png" class="about-title" alt="About Me" />
+
+        <img
+          src="img/content-section.png"
+          class="content-main"
+          alt="Contenido Principal"
+        />
+
+        <div class="scroll-down-about">
+          <img
+            src="img/scroll-indicator.svg"
+            class="arrow-bounce"
+            alt="Bajar"
+          />
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

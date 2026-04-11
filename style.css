@@ -1,0 +1,288 @@
+:root {
+  --blue-loader: rgba(5, 6, 37, 1);
+  --blue-dark: #07031a; /* Color del fondo para el borrado */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background: var(--blue-dark);
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- HEADER --- */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 200;
+  opacity: 0;
+}
+.nav-logo {
+  width: 30px;
+  filter: brightness(0) invert(1);
+}
+.nav-menu {
+  width: 35px;
+}
+
+/* --- LOADER --- */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--blue-loader);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-loader-container {
+  position: relative;
+  width: 80px;
+  height: 100px;
+}
+.logo-outline {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.3;
+}
+.logo-fill-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  overflow: hidden;
+}
+.logo-solid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 100px;
+  filter: brightness(0) invert(1);
+}
+
+/* --- HOME --- */
+#home {
+  position: relative;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+}
+.home-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 1;
+}
+.dark-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    var(--blue-dark) 100%
+  );
+  z-index: 2;
+}
+
+.scroll-down-center {
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: 450px;
+}
+.scroll-down-center img {
+  width: 100%;
+  animation: rebote 1.5s ease-in-out infinite;
+}
+
+@keyframes rebote {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+/* --- EFECTO EINSTEIN  --- */
+.carrusel-corner {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 90%;
+  max-width: 450px;
+}
+
+.einstein-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.einstein-img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* La cortina que tapa la imagen */
+.einstein-concealer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* JS/CSS lo subirá */
+  background: var(--blue-dark);
+  z-index: 5;
+  animation: wipe-conceal 5s ease-in-out infinite alternate;
+}
+
+/* La línea blanca borradora */
+.einstein-line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  background: #fff;
+  box-shadow: 0 0 10px #fff;
+  z-index: 6;
+  animation: line-move 5s ease-in-out infinite alternate;
+}
+
+@keyframes wipe-conceal {
+  0%,
+  15% {
+    height: 0%;
+  } /* Imagen visible */
+  45%,
+  55% {
+    height: 100%;
+  } /* Imagen BORRADA totalmente */
+  85%,
+  100% {
+    height: 0%;
+  } /* Imagen revelada */
+}
+
+@keyframes line-move {
+  0% {
+    width: 0%;
+    bottom: 0%;
+    opacity: 0;
+  }
+  5% {
+    width: 100%;
+    bottom: 0%;
+    opacity: 1;
+  }
+  15% {
+    bottom: 0%;
+  }
+  45%,
+  55% {
+    bottom: 100%;
+    width: 100%;
+  }
+  85% {
+    bottom: 0%;
+    width: 100%;
+  }
+  95% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0%;
+    bottom: 0%;
+    opacity: 0;
+  }
+}
+
+/* --- SECCIÓN ABOUT ME  --- */
+#about {
+  position: relative;
+  background: var(--blue-about); /* Azul marino más oscuro */
+  min-height: 100dvh;
+  padding: 80px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px; /* Aumentado para cubrir más pantalla */
+  text-align: center;
+}
+
+.about-title {
+  width: 80%;
+  max-width: 450px; /* Título más grande */
+  margin-bottom: 20px;
+}
+
+.content-main {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.scroll-down-about {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-down-about img {
+  width: 450px; /* Flecha un poco más grande */
+  filter: brightness(0) invert(1);
+  animation: rebote 1.5s ease-in-out infinite; /* Mismo efecto que el de arriba */
+}
+
+/* Animación de Rebote Unificada */
+@keyframes rebote {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}

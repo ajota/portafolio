@@ -1,6 +1,9 @@
 :root {
   --blue-loader: rgba(5, 6, 37, 1);
-  --blue-dark: #07031a; /* Color del fondo para el borrado */
+  --blue-dark: #07031a;
+  --blue-about: #020012;
+  --accent: #4f7cff;
+  --logo-color: #4f7cff;
 }
 
 * {
@@ -30,11 +33,16 @@ html {
   justify-content: space-between;
   align-items: center;
   z-index: 200;
-  opacity: 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  will-change: transform, opacity;
 }
 .nav-logo {
   width: 30px;
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 .nav-menu {
   width: 35px;
@@ -54,14 +62,16 @@ html {
   position: relative;
   width: 80px;
   height: 100px;
+  animation: pulse-scale 1.8s ease-in-out infinite alternate;
 }
 .logo-outline {
   width: 100%;
   height: 100%;
   position: absolute;
   bottom: 0;
-  filter: brightness(0) invert(1);
-  opacity: 0.3;
+  filter: none;
+  opacity: 1;
+  animation: stroke-glow 2.4s ease-in-out infinite alternate;
 }
 .logo-fill-box {
   position: absolute;
@@ -77,7 +87,7 @@ html {
   left: 0;
   width: 80px;
   height: 100px;
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 /* --- HOME --- */
@@ -235,7 +245,7 @@ html {
 #about {
   position: relative;
   background: var(--blue-about); /* Azul marino más oscuro */
-  min-height: 100dvh;
+  min-height: 110dvh;
   padding: 80px 10px;
   display: flex;
   justify-content: center;
@@ -255,12 +265,22 @@ html {
   width: 80%;
   max-width: 450px; /* Título más grande */
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .content-main {
   width: 100%;
   height: auto;
   object-fit: contain;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .scroll-down-about {
@@ -276,6 +296,46 @@ html {
   animation: rebote 1.5s ease-in-out infinite; /* Mismo efecto que el de arriba */
 }
 
+/* --- SECCIÓN PROJECTS --- */
+#projects {
+  position: relative;
+  background: var(--blue-about);
+  min-height: 110dvh;
+  padding: 80px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.projects-frame {
+  width: 80%;
+  max-width: 450px;
+  margin-bottom: 20%;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.projects-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.projects-container p {
+  font-size: 1.2rem;
+}
+
 /* Animación de Rebote Unificada */
 @keyframes rebote {
   0%,
@@ -284,5 +344,26 @@ html {
   }
   50% {
     transform: translateY(12px);
+  }
+}
+
+@keyframes pulse-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes stroke-glow {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0.3;
   }
 }

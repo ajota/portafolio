@@ -151,10 +151,12 @@ html {
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
-  width: 450px;
+  width: 85%;
+  max-width: 380px;
 }
 .scroll-down-center img {
-  width: 100%;
+  width: 85%;
+  max-width: 320px;
   animation: rebote 1.5s ease-in-out infinite;
 }
 
@@ -175,8 +177,8 @@ html {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  width: 90%;
-  max-width: 450px;
+  width: 85%;
+  max-width: 500px;
 }
 
 .einstein-container {
@@ -282,13 +284,13 @@ html {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 800px; /* Aumentado para cubrir más pantalla */
+  max-width: 380px; /* Aumentado para cubrir más pantalla */
   text-align: center;
 }
 
 .about-title {
   width: 80%;
-  max-width: 450px; /* Título más grande */
+  max-width: 260px; /* Título más grande */
   margin-bottom: 20px;
   transform: translateY(24px);
   transition:
@@ -314,7 +316,8 @@ html {
 }
 
 .scroll-down-about img {
-  width: 450px; /* Flecha un poco más grande */
+  width: 85%; /* Flecha un poco más grande */
+  max-width: 320px;
   filter: brightness(0) invert(1);
   animation: rebote 1.5s ease-in-out infinite; /* Mismo efecto que el de arriba */
 }
@@ -324,29 +327,188 @@ html {
   position: relative;
   background: var(--blue-about);
   min-height: 110dvh;
-  padding: 80px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
+  display: block;
 }
 
 .projects-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 800px;
-  text-align: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .projects-frame {
-  width: 80%;
-  max-width: 450px;
+  position: sticky;
+  top: 70px;
+  width: 50%;
+  max-width: 700px;
+  padding: 20px 0;
   margin-bottom: 20%;
+  z-index: 10;
+  align-self: center;
   transform: translateY(24px);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
+}
+.projects-component {
+  width: 45%;
+  max-width: 650px;
+  min-width: 200px;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.projects-component-text {
+  text-align: center;
+  color: var(--accent);
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+/* ============================================
+   MEDIA QUERIES — TABLET (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  /* Header */
+  .top-nav {
+    padding: 22px 30px;
+  }
+  .nav-logo {
+    width: 28px;
+  }
+  .nav-menu {
+    width: 32px;
+  }
+
+  /* Loader */
+  .logo-loader-container {
+    width: 80px;
+    height: 100px;
+  }
+  .logo-solid {
+    width: 80px;
+    height: 100px;
+  }
+
+  /* Home */
+  .scroll-down-center {
+    width: 420px;
+    max-width: 420px;
+  }
+  .carrusel-corner {
+    max-width: 420px;
+  }
+
+  /* About */
+  .about-container {
+    max-width: 700px;
+  }
+  .about-title {
+    max-width: 400px;
+  }
+  .scroll-down-about img {
+    max-width: 420px;
+  }
+
+  /* Projects */
+  .projects-container {
+    max-width: 650px;
+  }
+  .projects-frame {
+    width: 55%;
+    max-width: 360px;
+  }
+  .projects-component {
+    width: 55%;
+    max-width: 320px;
+  }
+  .projects-component-text {
+    font-size: 14px;
+  }
+}
+
+/* ============================================
+   MEDIA QUERIES — PC (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+  /* Header */
+  .top-nav {
+    padding: 25px 40px;
+  }
+  .nav-logo {
+    width: 30px;
+  }
+  .nav-menu {
+    width: 35px;
+  }
+
+  /* Home */
+  .scroll-down-center {
+    width: 450px;
+    max-width: 450px;
+  }
+  .carrusel-corner {
+    max-width: 450px;
+  }
+  .scroll-down-center {
+    width: 380px;
+    max-width: 380px;
+  }
+  .carrusel-corner {
+    max-width: 380px;
+  }
+
+  /* About */
+  .about-container {
+    max-width: 460px;
+  }
+  .about-title {
+    max-width: 300px;
+  }
+  .scroll-down-about img {
+    max-width: 380px;
+  }
+
+  /* Projects */
+  .projects-container {
+    max-width: 900px;
+  }
+  .projects-frame {
+    width: 60%;
+    max-width: 560px;
+    top: 70px;
+  }
+  .projects-component {
+    width: 58%;
+    max-width: 520px;
+  }
+  .projects-component-text {
+    font-size: 15px;
+    margin-top: 16px;
+  }
+}
+
+/* ============================================
+   MEDIA QUERIES — PC GRANDE (1440px+)
+   ============================================ */
+@media (min-width: 1440px) {
+  .projects-frame {
+    width: 50%;
+    max-width: 620px;
+  }
+  .projects-component {
+    width: 48%;
+    max-width: 580px;
+  }
+  .about-container {
+    max-width: 900px;
+  }
 }
 
 /* Animación de Rebote Unificada */

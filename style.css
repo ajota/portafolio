@@ -283,15 +283,19 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 380px; /* Aumentado para cubrir más pantalla */
+  width: 90%;
+  max-width: 1200px; /* Aumentado para cubrir más pantalla */
   text-align: center;
 }
 
 .about-title {
-  width: 80%;
-  max-width: 260px; /* Título más grande */
+  position: static;
+  width: 50%;
+  max-width: 560px;
+  padding: 20px 0;
   margin-bottom: 20px;
+  z-index: 10;
+  align-self: center;
   transform: translateY(24px);
   transition:
     opacity 0.8s ease,
@@ -299,7 +303,8 @@ html {
 }
 
 .content-main {
-  width: 100%;
+  width: 45%;
+  max-width: 650px;
   height: auto;
   object-fit: contain;
   transform: translateY(24px);
@@ -328,6 +333,7 @@ html {
   background: var(--blue-about);
   min-height: 110dvh;
   padding: 0;
+  padding-bottom: 0;
   display: block;
 }
 
@@ -341,12 +347,11 @@ html {
 }
 
 .projects-frame {
-  position: sticky;
-  top: 70px;
+  position: static;
   width: 50%;
   max-width: 700px;
   padding: 20px 0;
-  margin-bottom: 20%;
+  margin-bottom: 20px;
   z-index: 10;
   align-self: center;
   transform: translateY(24px);
@@ -369,6 +374,26 @@ html {
   color: var(--accent);
   font-size: 14px;
   margin-top: 16px;
+}
+.scroll-down-projects {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-down-projects img {
+  width: 85%;
+  max-width: 450px;
+  filter: brightness(0) invert(1);
+  animation: rebote 1.5s ease-in-out infinite;
+}
+
+.inter-pages {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  margin: 0;
 }
 
 /* ============================================
@@ -466,10 +491,15 @@ html {
 
   /* About */
   .about-container {
-    max-width: 460px;
+    max-width: 900px;
   }
   .about-title {
-    max-width: 300px;
+    width: 60%;
+    max-width: 480px;
+  }
+  .content-main {
+    width: 58%;
+    max-width: 520px;
   }
   .scroll-down-about img {
     max-width: 380px;
@@ -492,6 +522,15 @@ html {
     font-size: 15px;
     margin-top: 16px;
   }
+  .scroll-down-projects img {
+    max-width: 380px;
+  }
+  .inter-pages {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
 }
 
 /* ============================================
@@ -507,7 +546,15 @@ html {
     max-width: 580px;
   }
   .about-container {
-    max-width: 900px;
+    max-width: 650px;
+  }
+  .about-title {
+    width: 50%;
+    max-width: 620px;
+  }
+  .inter-pages {
+    width: 100%;
+    max-width: 100%;
   }
 }
 

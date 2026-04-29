@@ -290,26 +290,21 @@ html {
   gap: 30px;
 }
 /* TÍTULO EN TEXTO (activar cuando se tenga la fuente MADE Future X) */
-/* .about-title-text {
-  font-size: 28px;
+.about-title-text {
+  font-size: 48px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   text-align: center;
   color: transparent;
   -webkit-text-stroke: 1px rgba(215, 216, 244, 1);
   text-transform: uppercase;
   transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-} */
-
-.about-title {
-  width: 50%;
-  max-width: 400px;
-  transform: translateY(24px);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
+  font-family: "MADE Future X HEADER", sans-serif;
+  width: 100%;
 }
 
 .about-text {
@@ -325,6 +320,7 @@ html {
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
+  font-family: "MADE Future X", sans-serif;
 }
 
 .about-graph {
@@ -335,6 +331,12 @@ html {
   transition:
     opacity 0.8s ease,
     transform 0.8s ease; /* AGREGAR */
+}
+.scroll-down-about {
+  width: 85%;
+  max-width: 450px;
+  filter: brightness(0) invert(1);
+  animation: rebote 1.5s ease-in-out infinite;
 }
 
 /* --- SECCIÓN PROJECTS --- */
@@ -405,10 +407,39 @@ html {
   object-fit: cover;
   margin: 0;
 }
-.scene {
-  width: 200px;
-  height: 200px;
-  perspective: 600px;
+.caja-3d-svg {
+  width: 60%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.projects-subtitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.projects-text {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ffffff;
+  text-align: left;
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  max-width: 340px;
   margin: 0 auto;
   transform: translateY(24px);
   transition:
@@ -416,39 +447,6 @@ html {
     transform 0.8s ease;
 }
 
-.caja-3d {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: rotateX(-25deg) rotateY(45deg);
-}
-
-.cara {
-  position: absolute;
-  width: 200px;
-  height: 100px;
-  border: 1px solid rgb(255, 255, 255);
-  background: transparent;
-}
-.scene {
-  perspective: 800px;
-}
-.frente {
-  transform: translateZ(80px);
-}
-.atras {
-  transform: translateZ(-80px);
-}
-.izquierda {
-  transform: rotateY(-90deg) translateZ(100px);
-}
-.derecha {
-  transform: rotateY(90deg) translateZ(100px);
-}
-.arriba {
-  transform: rotateX(90deg) translateZ(50px);
-}
 /* --- SECCIÓN PARTE FINAL --- */
 #parte-final {
   position: relative;

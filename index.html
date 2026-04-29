@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "MADE Future X HEADER";
+        src: url("Fonts/MADE_Future_X_Line_PERSONAL\ _USE.otf")
+          format("opentype");
+      }
+      @font-face {
+        font-family: "MADE Future X";
+        src: url("Fonts/MADE_Future_X_Line_\ PERSONAL_USE\ __1__.otf")
+          format("opentype");
+      }
+    </style>
   </head>
   <body>
     <div id="loader">
@@ -52,8 +64,8 @@
     <section id="about">
       <div class="about-container">
         <!-- TÍTULO EN TEXTO (activar cuando se tenga la fuente MADE Future X) -->
-        <!-- <h2 class="about-title-text">About Me</h2> -->
-        <img src="img/About me.png" class="about-title" alt="About Me" />
+        <h2 class="about-title-text">ABOUT ME</h2>
+        <!---- <img src="img/About me.png" class="about-title" alt="About Me" />--->
 
         <p class="about-text">
           An unconventional, disruptive, passionate, and big enthusiast geek, in
@@ -91,28 +103,73 @@
       <div class="projects-container">
         <img src="img/Frame 16.png" class="projects-frame" alt="Frame" />
 
-        <div class="scene">
-  <div class="caja-3d">
-    <div class="cara frente"></div>
-    <div class="cara atras"></div>
-    <div class="cara izquierda"></div>
-    <div class="cara derecha"></div>
-    <div class="cara arriba"></div>
-  </div>
-</div>
+        <svg
+          class="caja-3d-svg"
+          viewBox="0 -30 330 260"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!-- Rectangle 6 - tapa superior -->
+          <g transform="translate(54, -7)">
+            <path
+              d="M217.073 18.9219L110.233 58.1797L1.9502 18.9219L110.233 0.506836L217.073 18.9219Z"
+              stroke="#D7D8F4"
+              stroke-width="1"
+              fill="none"
+            />
+          </g>
+          <!-- Rectangle 6 - base inferior -->
+          <g transform="translate(54, -7)">
+            <path
+              d="M217.657 95.8789L110.232 165.715L1.35547 95.8789L110.233 77.3623L217.657 95.8789Z"
+              stroke="#D7D8F4"
+              stroke-width="1"
+              fill="none"
+            />
+          </g>
+          <!-- Vector 4 (lado izquierdo) -->
+          <g transform="translate(55, 12)">
+            <path
+              d="M0.5 77.5676V0.71167L109.265 39.9082V146.738L0.5 77.5676Z"
+              stroke="#D7D8F4"
+              stroke-width="1"
+              fill="none"
+            />
+          </g>
+          <!-- Vector 5 (lado derecho) -->
+          <g transform="translate(163, 12)">
+            <path
+              d="M109.265 77.5676V0.71167L0.5 39.9082V146.738L109.265 77.5676Z"
+              stroke="#D7D8F4"
+              stroke-width="1"
+              fill="none"
+            />
+          </g>
         </svg>
+        <h3 class="projects-subtitle">SOLUTIONS ARCHITECT</h3>
+        <p class="projects-text">
+          Providing the most efficient and accurate software suggestions with a
+          wide and clear business approach, matching the company needs using the
+          product strategies and enterprise objectives. In addition of carrying
+          meticulous analysis out to the emergent requirements to discover the
+          possible touch points, risks or any inconvenient side effects to the
+          existent systems and share those as modify suggestions or
+          improvements, suppling the possible activities to be executed, in
+          order to choose the best way to tackle those and prevent negative user
+          experience impacts and/or organization operations lags.
+        </p>
         <div class="scroll-down-projects">
           <img src="img/scroll-indicator.svg" alt="Bajar" />
         </div>
       </div>
-      <img src="img/inter-pages.png" class="inter-pages" alt="Inter pages" />
+      <!-- <img src="img/inter-pages.png" class="inter-pages" alt="Inter pages" /> -->
     </section>
 
-    <section id="parte-final">
+    <!---- <section id="parte-final">
       <div class="frame-final">
         <img src="img/Frame 17.png" class="titulo-final" alt="frame-final" />
       </div>
-    </section>
+    </section> ---->
 
     <script src="script.js"></script>
   </body>

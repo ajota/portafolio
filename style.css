@@ -291,13 +291,12 @@ html {
 }
 /* TÍTULO EN TEXTO (activar cuando se tenga la fuente MADE Future X) */
 .about-title-text {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   text-align: center;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(215, 216, 244, 1);
+  color: rgba(215, 216, 244, 1);
   text-transform: uppercase;
   transform: translateY(24px);
   transition:

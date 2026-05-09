@@ -1,7 +1,7 @@
 :root {
   --blue-loader: rgba(5, 6, 37, 1);
-  --blue-dark: #07031a;
-  --blue-about: #020012;
+  --blue-dark: rgba(5, 6, 37, 1);
+  --blue-about: rgba(5, 6, 37, 0.9);
   --accent: #54a4ff;
   --logo-color: #54a4ff;
 }
@@ -35,18 +35,167 @@ html {
   align-items: center;
   z-index: 200;
   opacity: 1;
-  transform: translateY(0);
-  transition:
-    transform 0.5s ease,
-    opacity 0.5s ease;
-  will-change: transform, opacity;
 }
 .nav-logo {
   width: 30px;
-  filter: none;
+  height: auto;
+  display: block;
 }
 .nav-menu {
   width: 35px;
+  height: auto;
+  display: block;
+}
+/* --- BOTONES NAV --- */
+.nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* --- MODAL INFO --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 37, 0.85);
+  z-index: 9998;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-box {
+  position: relative;
+  background: rgba(5, 6, 37, 0.95);
+  border: 1px solid rgba(84, 164, 255, 0.4);
+  border-radius: 12px;
+  padding: 50px 40px 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(84, 164, 255, 0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-name {
+  font-family: "MADE Future X HEADER", sans-serif;
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.modal-text {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #ffffff;
+  font-weight: 100;
+}
+
+.modal-creator {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 25px;
+  letter-spacing: 1px;
+}
+
+.modal-creator span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* --- SIDE MENU --- */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100dvh;
+  background: rgba(5, 6, 37, 0.97);
+  border-left: 1px solid rgba(84, 164, 255, 0.3);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.4s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.menu-link {
+  font-family: "MADE Future X HEADER", sans-serif;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.menu-link:hover {
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* --- LOADER --- */
@@ -117,6 +266,22 @@ html {
 }*/
 
 /* --- HOME --- */
+.mobile-only {
+  display: block;
+}
+.desktop-only {
+  display: none;
+}
+
+.banner-diffusor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+}
 #home {
   position: relative;
   height: 100dvh;
@@ -128,11 +293,11 @@ html {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
   z-index: 1;
 }
-.dark-overlay {
+/*.dark-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -141,10 +306,10 @@ html {
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
-    var(--blue-dark) 100%
+    rgba(5, 6, 37, 0.55) 100%
   );
   z-index: 2;
-}
+}*/
 
 .scroll-down-center {
   position: absolute;
@@ -153,11 +318,11 @@ html {
   transform: translateX(-50%);
   z-index: 20;
   width: 85%;
-  max-width: 380px;
+  max-width: 280px;
 }
 .scroll-down-center img {
   width: 85%;
-  max-width: 320px;
+  max-width: 280px;
   animation: rebote 1.5s ease-in-out infinite;
 }
 
@@ -174,12 +339,12 @@ html {
 /* --- EFECTO EINSTEIN  --- */
 .carrusel-corner {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  left: 0;
+  transform: none;
   z-index: 10;
-  width: 85%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .einstein-container {
@@ -204,20 +369,21 @@ html {
   height: 0%; /* JS/CSS lo subirá */
   background: var(--blue-dark);
   z-index: 5;
-  animation: wipe-conceal 5s ease-in-out infinite alternate;
+  animation: wipe-conceal 7s ease-in-out infinite alternate;
 }
 
 /* La línea blanca borradora */
 .einstein-line {
+  width: 100%;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  transform: none;
   height: 3px;
-  background: #fff;
-  box-shadow: 0 0 10px #fff;
+  background: #54a4ff;
+  box-shadow: 0 0 10px #54a4ff;
   z-index: 6;
-  animation: line-move 5s ease-in-out infinite alternate;
+  animation: line-move 7s ease-in-out infinite alternate;
 }
 
 @keyframes wipe-conceal {
@@ -312,7 +478,7 @@ html {
   line-height: 1.8;
   color: #ffffff;
   text-align: left;
-  font-weight: 100; /* fino para verse elegante */
+  font-weight: 100;
   letter-spacing: 0.5px;
   max-width: 500px;
   margin: 0 auto;
@@ -325,7 +491,7 @@ html {
 
 .about-graph {
   width: 100%;
-  max-width: 500px;
+  max-width: 380px;
   object-fit: contain;
   transform: translateY(24px); /* AGREGAR */
   transition:
@@ -334,7 +500,7 @@ html {
 }
 .scroll-down-about {
   width: 85%;
-  max-width: 450px;
+  max-width: 280px;
   filter: brightness(0) invert(1);
   animation: rebote 1.5s ease-in-out infinite;
 }
@@ -343,10 +509,10 @@ html {
 #projects {
   position: relative;
   background: var(--blue-about);
-  min-height: 110dvh;
-  padding: 0;
-  padding-bottom: 0;
-  display: block;
+  padding: 210px 0 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .projects-container {
@@ -388,7 +554,7 @@ html {
   margin-top: 16px;
 }
 .scroll-down-projects {
-  margin-top: 60px;
+  margin-top: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -396,7 +562,7 @@ html {
 
 .scroll-down-projects img {
   width: 85%;
-  max-width: 450px;
+  max-width: 280px;
   filter: brightness(0) invert(1);
   animation: rebote 1.5s ease-in-out infinite;
 }
@@ -423,8 +589,8 @@ html {
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-align: left;
-  margin-top: 10px;
+  text-align: center;
+  margin-top: -40px;
   margin-bottom: 10px;
   transform: translateY(24px);
   transition:
@@ -436,51 +602,256 @@ html {
   font-size: 16px;
   line-height: 1.8;
   color: #ffffff;
-  text-align: left;
+  text-align: center;
   font-weight: 100;
   letter-spacing: 0.5px;
-  max-width: 340px;
+  max-width: 500px;
   margin: 0 auto;
   transform: translateY(24px);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
 }
-
-/* --- SECCIÓN PARTE FINAL --- */
+/* --- ACTIONS BANNER (Work bottom) --- */
+.actions-banner {
+  width: 100%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: 0;
+  object-fit: cover;
+}
+.projects-title-text {
+  font-family: "MADE Future X HEADER", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 8px;
+  text-align: center;
+  color: rgba(215, 216, 244, 1);
+  text-transform: uppercase;
+  width: 100%;
+  margin-bottom: 20px;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+/* --- SECCIÓN PARTE FINAL (TOPICS) --- */
 #parte-final {
   position: relative;
   background: var(--blue-about);
-  min-height: 110dvh;
-  padding: 80px 16px;
+  min-height: 100dvh;
+  padding: 200px 16px 100px;
   display: flex;
-  justify-content: flex-start; /* alineado a la izquierda */
-  align-items: flex-start;
+  justify-content: center;
 }
 
-.frame-final {
+.topics-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* contenido a la izquierda */
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  gap: 60px;
+  align-items: center;
 }
-
-.titulo-final {
-  width: 50%;
-  max-width: 560px;
+.topics-title-text {
+  font-family: "MADE Future X HEADER", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 8px;
+  text-align: center;
+  color: rgba(215, 216, 244, 1);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  width: 100%;
   transform: translateY(24px);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
+}
+
+.topics-category {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  align-items: stretch;
+}
+
+.category-title {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.topic-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px;
+  background: transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
+}
+
+.topic-card:hover {
+  background: rgba(84, 164, 255, 0.08);
+  transform: translateX(4px);
+}
+
+.topic-img {
+  width: 180px;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.topic-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.topic-date {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}
+
+.topic-title {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.topic-subtitle {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 15px;
+  color: var(--accent);
+  font-weight: 100;
+  margin: 0;
+  line-height: 1.3;
+}
+/* ============================================
+   MEDIA QUERIES — CELULAR (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
+
+  .scroll-down-center {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 65%;
+  }
+  .scroll-down-center img {
+    width: 120px;
+    max-width: 120px;
+  }
+  .about-title-text {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+  .about-text {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .about-graph {
+    max-width: 280px;
+  }
+  .banner-diffusor {
+    max-height: 200px;
+    object-fit: cover;
+  }
+  .scroll-down-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .scroll-down-about img {
+    width: 120px;
+    max-width: 120px;
+  }
+  #projects {
+    padding: 100px 20px 0;
+  }
+  .projects-title-text {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+  .projects-container {
+    width: 100%;
+  }
+  .projects-frame {
+    width: 80%;
+    max-width: 260px;
+  }
+  .caja-3d-svg {
+    width: 70%;
+    max-width: 220px;
+  }
+  .projects-subtitle {
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  .projects-text {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .scroll-down-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .scroll-down-projects img {
+    width: 120px;
+    max-width: 120px;
+  }
+  .actions-banner {
+    margin-top: 50px;
+  }
+  #parte-final {
+    padding: 120px 16px 60px;
+  }
 }
 
 /* ============================================
    MEDIA QUERIES — TABLET (768px+)
    ============================================ */
+
 @media (min-width: 768px) {
-  /* Header */
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+
   .top-nav {
     padding: 22px 30px;
   }
@@ -490,8 +861,6 @@ html {
   .nav-menu {
     width: 32px;
   }
-
-  /* Loader */
   .logo-loader-container {
     width: 80px;
     height: 100px;
@@ -500,131 +869,183 @@ html {
     width: 80px;
     height: 100px;
   }
-
-  /* Home */
   .scroll-down-center {
     width: 420px;
     max-width: 420px;
   }
+  .scroll-down-center img {
+    width: 100%;
+    max-width: 420px;
+  }
+  .scroll-down-about {
+    max-width: 420px;
+  }
+  .scroll-down-about img {
+    width: 100%;
+    max-width: 420px;
+  }
+  .scroll-down-projects img {
+    width: 420px;
+    max-width: 420px;
+  }
+  .home-bg {
+    object-fit: contain;
+    object-position: center top;
+  }
   .carrusel-corner {
     max-width: 420px;
   }
-
-  /* About */
   .about-container {
     max-width: 700px;
   }
-
-  .scroll-down-about img {
-    max-width: 420px;
-  }
-
-  /* Projects */
   .projects-container {
     max-width: 650px;
   }
-  .projects-frame {
-    width: 55%;
-    max-width: 360px;
+  .caja-3d-svg {
+    width: 50%;
+    max-width: 250px;
   }
-  .projects-component {
-    width: 55%;
-    max-width: 320px;
+  .projects-subtitle {
+    font-size: 28px;
   }
-  .projects-component-text {
-    font-size: 14px;
+  .projects-text {
+    max-width: 400px;
+  }
+  .projects-title-text {
+    font-size: 32px;
   }
 }
-
 /* ============================================
    MEDIA QUERIES — PC (1024px+)
    ============================================ */
 @media (min-width: 1024px) {
-  /* Header */
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+
   .top-nav {
     padding: 25px 40px;
   }
   .nav-logo {
-    width: 30px;
+    width: 32px;
   }
   .nav-menu {
-    width: 35px;
+    width: 36px;
   }
 
-  /* Home */
+  /* HOME */
   .scroll-down-center {
-    width: 380px;
-    max-width: 380px;
+    width: 420px;
+    max-width: 420px;
+  }
+  .scroll-down-center img {
+    max-width: 360px;
   }
   .carrusel-corner {
-    max-width: 380px;
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .banner-diffusor {
+    max-height: 350px;
+    object-fit: cover;
   }
 
-  /* About */
+  /* ABOUT */
   .about-container {
     max-width: 900px;
   }
-  .about-title {
-    width: 60%;
-    max-width: 480px;
+  .about-text {
+    max-width: 800px;
+    text-align: center;
+  }
+  .scroll-down-about {
+    max-width: 360px;
   }
   .scroll-down-about img {
-    max-width: 380px;
+    width: 100%;
+    max-width: 280px;
   }
 
-  /* Projects */
+  /* PROJECTS */
   .projects-container {
     max-width: 900px;
   }
-  .projects-frame {
-    width: 60%;
-    max-width: 560px;
-    top: 70px;
+  .projects-title-text {
+    font-size: 36px;
+    letter-spacing: 10px;
   }
-  .projects-component {
-    width: 58%;
-    max-width: 520px;
+  .caja-3d-svg {
+    width: 40%;
+    max-width: 280px;
   }
-  .projects-component-text {
-    font-size: 15px;
-    margin-top: 16px;
+  .projects-subtitle {
+    font-size: 32px;
+    letter-spacing: 3px;
+  }
+  .projects-text {
+    max-width: 800px;
+    font-size: 16px;
   }
   .scroll-down-projects img {
-    max-width: 380px;
+    width: 280px;
+    max-width: 280px;
   }
+
+  /* TOPICS */
+  .topics-container {
+    max-width: 900px;
+  }
+  .topic-img {
+    width: 220px;
+    height: 140px;
+  }
+  .topic-title {
+    font-size: 22px;
+  }
+  .topic-subtitle {
+    font-size: 17px;
+  }
+  .topic-date {
+    font-size: 14px;
+  }
+
   .inter-pages {
     width: 100%;
     max-width: 100%;
     object-fit: cover;
-    object-position: center top;
-  }
-
-  /* parte final */
-  .titulo-final {
-    width: 45%;
-    max-width: 480px;
   }
 }
-
 /* ============================================
    MEDIA QUERIES — PC GRANDE (1440px+)
    ============================================ */
 @media (min-width: 1440px) {
-  .projects-frame {
-    width: 50%;
-    max-width: 620px;
-  }
-  .projects-component {
-    width: 48%;
-    max-width: 580px;
-  }
   .about-container {
-    max-width: 650px;
+    max-width: 1000px;
   }
-  .about-title {
-    width: 50%;
-    max-width: 620px;
+  .about-text {
+    max-width: 900px;
   }
+  .projects-container {
+    max-width: 1000px;
+  }
+  .caja-3d-svg {
+    width: 35%;
+    max-width: 300px;
+  }
+  .projects-subtitle {
+    font-size: 36px;
+  }
+  .projects-text {
+    max-width: 900px;
+  }
+  .topics-container {
+    max-width: 1000px;
+  }
+
   .inter-pages {
     width: 100%;
     max-width: 100%;

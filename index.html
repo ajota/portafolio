@@ -38,18 +38,54 @@
     </div>
 
     <header class="top-nav">
-      <img src="img/logo.svg?v=3" class="nav-logo" alt="logo" />
-      <img src="img/menu-icon.svg" class="nav-menu" alt="menu" />
+      <button id="logo-btn" class="nav-btn" aria-label="Info">
+        <img src="img/logo.svg?v=3" class="nav-logo" alt="logo" />
+      </button>
+      <button id="menu-btn" class="nav-btn" aria-label="Menu">
+        <img src="img/menu-icon.svg" class="nav-menu" alt="menu" />
+      </button>
     </header>
+    <!-- MODAL INFO (logo) -->
+    <div id="info-modal" class="modal-overlay">
+      <div class="modal-box">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <h3 class="modal-name">Anderson Jovany Velez Alvarez</h3>
+        <p class="modal-text">
+          Portafolio personal de Anderson Jovany Velez Alvarez, desarrollador y
+          Solutions Architect apasionado por la tecnología, el diseño y el
+          universo. Una colección de experiencias profesionales construidas con
+          creatividad y propósito.
+        </p>
+        <p class="modal-creator">
+          Creado por <span>Sebastian Velez Alvarez</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- MENU NAV -->
+    <nav id="side-menu" class="side-menu">
+      <button class="menu-close" id="menu-close">&times;</button>
+      <ul class="menu-list">
+        <li><a href="#home" class="menu-link">Home</a></li>
+        <li><a href="#about" class="menu-link">About</a></li>
+        <li><a href="#projects" class="menu-link">Work</a></li>
+        <li><a href="#parte-final" class="menu-link">Topics</a></li>
+      </ul>
+    </nav>
 
     <section id="home">
-      <img src="img/banner.png" class="home-bg" alt="Fondo" />
-      <div class="dark-overlay"></div>
+      <img src="img/banner.png" class="home-bg desktop-only" alt="Fondo" />
+      <img
+        src="img/home-portada-img-full-res_1.png"
+        class="home-bg mobile-only"
+        alt="Fondo"
+      />
+      <!-- <div class="dark-overlay"></div> -->
 
       <a href="#about" class="scroll-down-center">
         <img src="img/scroll-indicator.svg" alt="Bajar" />
       </a>
-
+      <img src="img/banner-diffusor (1).png" class="banner-diffusor" alt="" />
       <div class="carrusel-corner">
         <div class="einstein-container">
           <img src="img/Carrusel.png" class="einstein-img" alt="Einstein" />
@@ -90,15 +126,19 @@
           alt="Abuot Me Graph"
         />
         <a href="#projects" class="scroll-down-about">
-  <img src="img/scroll-indicator.svg" class="arrow-bounce" alt="Bajar" />
-</a>
-        </div>
+          <img
+            src="img/scroll-indicator.svg"
+            class="arrow-bounce"
+            alt="Bajar"
+          />
+        </a>
       </div>
     </section>
 
     <section id="projects">
       <div class="projects-container">
-        <img src="img/Frame 16.png" class="projects-frame" alt="Frame" />
+        <!-- <img src="img/Frame 16.png" class="projects-frame" alt="Frame" /> -->
+        <h2 class="projects-title-text">MY WORK</h2>
 
         <svg
           class="caja-3d-svg"
@@ -155,18 +195,82 @@
           order to choose the best way to tackle those and prevent negative user
           experience impacts and/or organization operations lags.
         </p>
-       <a href="#parte-final" class="scroll-down-projects">
-  <img src="img/scroll-indicator.svg" alt="Bajar" />
-</a>
+        <a href="#parte-final" class="scroll-down-projects">
+          <img src="img/scroll-indicator.svg" alt="Bajar" />
+        </a>
       </div>
-      <!-- <img src="img/inter-pages.png" class="inter-pages" alt="Inter pages" /> -->
+      <img
+        src="img/actions-banner.png"
+        class="actions-banner"
+        alt="Actions speak louder than words"
+      />
     </section>
+    <section id="parte-final">
+      <div class="topics-container">
+        <h2 class="topics-title-text">TOPICS</h2>
 
-    <!---- <section id="parte-final">
-      <div class="frame-final">
-        <img src="img/Frame 17.png" class="titulo-final" alt="frame-final" />
+        <div class="topics-category">
+          <h3 class="category-title">Relevants</h3>
+
+          <a href="#" class="topic-card">
+            <img src="img/topic-1.png" class="topic-img" alt="Topic" />
+            <div class="topic-info">
+              <span class="topic-date">17/11/2022</span>
+              <h4 class="topic-title">Desarrollador Fullstack</h4>
+              <p class="topic-subtitle">¿una utopía, una verdad...</p>
+            </div>
+          </a>
+
+          <a href="#" class="topic-card">
+            <img src="img/topic-1.png" class="topic-img" alt="Topic" />
+            <div class="topic-info">
+              <span class="topic-date">17/11/2022</span>
+              <h4 class="topic-title">Desarrollador Fullstack</h4>
+              <p class="topic-subtitle">¿una utopía, una verdad...</p>
+            </div>
+          </a>
+
+          <a href="#" class="topic-card">
+            <img src="img/topic-1.png" class="topic-img" alt="Topic" />
+            <div class="topic-info">
+              <span class="topic-date">17/11/2022</span>
+              <h4 class="topic-title">Desarrollador Fullstack</h4>
+              <p class="topic-subtitle">¿una utopía, una verdad...</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="topics-category">
+          <h3 class="category-title">Archive</h3>
+
+          <a href="#" class="topic-card">
+            <img src="img/topic-1.png" class="topic-img" alt="Topic" />
+            <div class="topic-info">
+              <span class="topic-date">17/11/2022</span>
+              <h4 class="topic-title">Desarrollador Fullstack</h4>
+              <p class="topic-subtitle">¿una utopía, una verdad...</p>
+            </div>
+          </a>
+
+          <a href="#" class="topic-card">
+            <img src="img/topic-1.png" class="topic-img" alt="Topic" />
+            <div class="topic-info">
+              <span class="topic-date">17/11/2022</span>
+              <h4 class="topic-title">Desarrollador Fullstack</h4>
+              <p class="topic-subtitle">¿una utopía, una verdad...</p>
+            </div>
+          </a>
+        </div>
+        <a href="#" class="topic-card">
+          <img src="img/topic-1.png" class="topic-img" alt="Topic" />
+          <div class="topic-info">
+            <span class="topic-date">17/11/2022</span>
+            <h4 class="topic-title">Desarrollador Fullstack</h4>
+            <p class="topic-subtitle">¿una utopía, una verdad...</p>
+          </div>
+        </a>
       </div>
-    </section> ---->
+    </section>
 
     <script src="script.js"></script>
   </body>

@@ -73,48 +73,28 @@ gsap.from(".projects-container", {
   duration: 1.5,
   ease: "power3.out",
 });
-// --- MODAL INFO (logo) ---
+
+// MODAL LOGO
 const logoBtn = document.getElementById("logo-btn");
 const infoModal = document.getElementById("info-modal");
 const modalClose = document.getElementById("modal-close");
 
-logoBtn.addEventListener("click", () => {
-  infoModal.classList.add("active");
-});
-
-modalClose.addEventListener("click", () => {
-  infoModal.classList.remove("active");
-});
-
+logoBtn.addEventListener("click", () => infoModal.classList.add("active"));
+modalClose.addEventListener("click", () =>
+  infoModal.classList.remove("active"),
+);
 infoModal.addEventListener("click", (e) => {
-  if (e.target === infoModal) {
-    infoModal.classList.remove("active");
-  }
+  if (e.target === infoModal) infoModal.classList.remove("active");
 });
 
-// --- SIDE MENU ---
+// MENU HAMBURGUESA
 const menuBtn = document.getElementById("menu-btn");
 const sideMenu = document.getElementById("side-menu");
 const menuClose = document.getElementById("menu-close");
 const menuLinks = document.querySelectorAll(".menu-link");
 
-menuBtn.addEventListener("click", () => {
-  sideMenu.classList.add("active");
-});
-
-menuClose.addEventListener("click", () => {
-  sideMenu.classList.remove("active");
-});
-
+menuBtn.addEventListener("click", () => sideMenu.classList.add("active"));
+menuClose.addEventListener("click", () => sideMenu.classList.remove("active"));
 menuLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    sideMenu.classList.remove("active");
-  });
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    infoModal.classList.remove("active");
-    sideMenu.classList.remove("active");
-  }
+  link.addEventListener("click", () => sideMenu.classList.remove("active"));
 });

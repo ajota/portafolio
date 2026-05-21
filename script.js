@@ -3,15 +3,10 @@ gsap.registerPlugin(ScrollTrigger);
 window.addEventListener("load", () => {
   const tl = gsap.timeline();
 
-  tl.to(".logo-fill-box", {
-    height: "100%",
-    duration: 4,
-    ease: "none",
-  });
-
   tl.to("#loader", {
     opacity: 0,
     duration: 1.2,
+    delay: 3,
     ease: "power2.inOut",
     onComplete: () => {
       document.getElementById("loader").style.display = "none";
@@ -50,28 +45,6 @@ window.addEventListener("load", () => {
     },
     "-=0.8",
   );
-});
-
-gsap.from(".about-container", {
-  scrollTrigger: {
-    trigger: "#about",
-    start: "top 75%",
-  },
-  opacity: 0,
-  y: 80,
-  duration: 1.5,
-  ease: "power3.out",
-});
-
-gsap.from(".projects-container", {
-  scrollTrigger: {
-    trigger: "#projects",
-    start: "top 75%",
-  },
-  opacity: 0,
-  y: 80,
-  duration: 1.5,
-  ease: "power3.out",
 });
 
 // MODAL LOGO

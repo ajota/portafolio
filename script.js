@@ -9,7 +9,8 @@ window.addEventListener("load", () => {
     delay: 3,
     ease: "power2.inOut",
     onComplete: () => {
-      document.getElementById("loader").style.display = "none";
+      const loader = document.getElementById("loader");
+      if (loader) loader.style.display = "none";
     },
   });
 
@@ -52,13 +53,25 @@ const logoBtn = document.getElementById("logo-btn");
 const infoModal = document.getElementById("info-modal");
 const modalClose = document.getElementById("modal-close");
 
-logoBtn.addEventListener("click", () => infoModal.classList.add("active"));
-modalClose.addEventListener("click", () =>
-  infoModal.classList.remove("active"),
-);
-infoModal.addEventListener("click", (e) => {
-  if (e.target === infoModal) infoModal.classList.remove("active");
-});
+const openModal = () => {
+  if (!infoModal || !logoBtn) return;
+  infoModal.classList.add("active");
+  logoBtn.setAttribute("aria-expanded", "true");
+};
+
+const closeModal = () => {
+  if (!infoModal || !logoBtn) return;
+  infoModal.classList.remove("active");
+  logoBtn.setAttribute("aria-expanded", "false");
+};
+
+if (logoBtn) logoBtn.addEventListener("click", openModal);
+if (modalClose) modalClose.addEventListener("click", closeModal);
+if (infoModal) {
+  infoModal.addEventListener("click", (e) => {
+    if (e.target === infoModal) closeModal();
+  });
+}
 
 // MENU HAMBURGUESA
 const menuBtn = document.getElementById("menu-btn");
@@ -66,8 +79,18 @@ const sideMenu = document.getElementById("side-menu");
 const menuClose = document.getElementById("menu-close");
 const menuLinks = document.querySelectorAll(".menu-link");
 
-menuBtn.addEventListener("click", () => sideMenu.classList.add("active"));
-menuClose.addEventListener("click", () => sideMenu.classList.remove("active"));
-menuLinks.forEach((link) => {
-  link.addEventListener("click", () => sideMenu.classList.remove("active"));
-});
+const openMenu = () => {
+  if (!sideMenu || !menuBtn) return;
+  sideMenu.classList.add("active");
+  menuBtn.setAttribute("aria-expanded", "true");
+};
+
+const closeMenu = () => {
+  if (!sideMenu || !menuBtn) return;
+  sideMenu.classList.remove("active");
+  menuBtn.setAttribute("aria-expanded", "false");
+};
+
+if (menuBtn) menuBtn.addEventListener("click", openMenu);
+if (menuClose) menuClose.addEventListener("click", closeMenu);
+menuLinks.forEach((link) => link.addEventListener("click", closeMenu));

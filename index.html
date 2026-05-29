@@ -23,7 +23,7 @@
       property="og:description"
       content="Solutions Architect y desarrollador apasionado por la tecnología y el diseño."
     />
-    <meta property="og:image" content="img/banner.webp" />
+    <meta property="og:image" content="https://tudominio.netlify.app/img/banner.webp" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -32,17 +32,33 @@
       name="twitter:description"
       content="Solutions Architect y desarrollador apasionado por la tecnología y el diseño."
     />
-    <meta name="twitter:image" content="img/banner.webp" />
+    <meta name="twitter:image" content="https://tudominio.netlify.app/img/banner.webp" />
+
+    <!-- Preload hero images (LCP) -->
+    <link
+      rel="preload"
+      as="image"
+      href="img/banner.webp"
+      type="image/webp"
+      media="(min-width: 768px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="img/home-portada-img-full-res_1.webp"
+      type="image/webp"
+      media="(max-width: 767px)"
+    />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.min.css" />
 
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
   </head>
   <body>
     <div id="loader">
@@ -90,25 +106,27 @@
         id="logo-btn"
         class="nav-btn"
         aria-label="Información del portafolio"
+        aria-expanded="false"
       >
-        <img src="img/logo-outline.svg" class="nav-logo" alt="Logo" />
+        <img src="img/logo-outline.svg" class="nav-logo" alt="Logo" width="100" height="125" />
       </button>
       <button
         id="menu-btn"
         class="nav-btn"
         aria-label="Abrir menú de navegación"
+        aria-expanded="false"
       >
-        <img src="img/menu-icon.svg" class="nav-menu" alt="Menú" />
+        <img src="img/menu-icon.svg" class="nav-menu" alt="Menú" width="32" height="23" />
       </button>
     </header>
 
     <!-- MODAL INFO -->
-    <div id="info-modal" class="modal-overlay">
+    <div id="info-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div class="modal-box">
         <button class="modal-close" id="modal-close" aria-label="Cerrar modal">
           &times;
         </button>
-        <h3 class="modal-name">Anderson Jovany Velez Alvarez</h3>
+        <h3 id="modal-title" class="modal-name">Anderson Jovany Velez Alvarez</h3>
         <p class="modal-text">
           Portafolio personal de Anderson Jovany Velez Alvarez, desarrollador y
           Solutions Architect apasionado por la tecnología, el diseño y el
@@ -131,6 +149,7 @@
         <li><a href="#about" class="menu-link">About</a></li>
         <li><a href="#projects" class="menu-link">Work</a></li>
         <li><a href="#parte-final" class="menu-link">Topics</a></li>
+        <li><a href="#contact" class="menu-link">Contact</a></li>
       </ul>
     </nav>
 
@@ -140,15 +159,19 @@
           src="img/banner.webp"
           class="home-bg desktop-only"
           alt="Fondo cósmico de portada"
+          width="1459"
+          height="612"
         />
         <img
           src="img/home-portada-img-full-res_1.webp"
           class="home-bg mobile-only"
           alt="Fondo cósmico de portada"
+          width="375"
+          height="612"
         />
 
         <a href="#about" class="scroll-down-center" aria-label="Bajar a About">
-          <img src="img/scroll-indicator.svg" alt="" />
+          <img src="img/scroll-indicator.svg" alt="" width="373" height="49" />
         </a>
         <div class="banner-diffusor" aria-hidden="true"></div>
 
@@ -158,6 +181,8 @@
               src="img/Carrusel.png"
               class="einstein-img"
               alt="Retrato de Einstein con frase inspiradora"
+              width="359"
+              height="153"
             />
             <div class="einstein-concealer"></div>
             <div class="einstein-line"></div>
@@ -191,13 +216,15 @@
             class="about-graph"
             loading="lazy"
             alt="Retrato de Anderson Velez en triángulo invertido"
+            width="271"
+            height="254"
           />
           <a
             href="#projects"
             class="scroll-down-about"
             aria-label="Bajar a Work"
           >
-            <img src="img/scroll-indicator.svg" class="arrow-bounce" alt="" />
+            <img src="img/scroll-indicator.svg" class="arrow-bounce" alt="" width="373" height="49" />
           </a>
         </div>
       </section>
@@ -265,7 +292,7 @@
             class="scroll-down-projects"
             aria-label="Bajar a Topics"
           >
-            <img src="img/scroll-indicator.svg" alt="" />
+            <img src="img/scroll-indicator.svg" alt="" width="373" height="49" />
           </a>
         </div>
         <img
@@ -273,12 +300,16 @@
           class="actions-banner desktop-only"
           loading="lazy"
           alt="Frase: Actions speak louder than words"
+          width="1459"
+          height="71"
         />
         <img
           src="img/actions-banner-mobile.png"
           class="actions-banner mobile-only"
           loading="lazy"
           alt="Frase: Actions speak louder than words"
+          width="373"
+          height="70"
         />
       </section>
 
@@ -295,6 +326,8 @@
                 class="topic-img"
                 loading="lazy"
                 alt="Artículo: Desarrollador Fullstack"
+                width="250"
+                height="158"
               />
               <div class="topic-info">
                 <span class="topic-date">17/11/2022</span>
@@ -309,6 +342,8 @@
                 class="topic-img"
                 loading="lazy"
                 alt="Artículo: Desarrollador Fullstack"
+                width="250"
+                height="158"
               />
               <div class="topic-info">
                 <span class="topic-date">17/11/2022</span>
@@ -323,6 +358,8 @@
                 class="topic-img"
                 loading="lazy"
                 alt="Artículo: Desarrollador Fullstack"
+                width="250"
+                height="158"
               />
               <div class="topic-info">
                 <span class="topic-date">17/11/2022</span>
@@ -341,6 +378,8 @@
                 class="topic-img"
                 loading="lazy"
                 alt="Artículo: Desarrollador Fullstack"
+                width="250"
+                height="158"
               />
               <div class="topic-info">
                 <span class="topic-date">17/11/2022</span>
@@ -355,6 +394,8 @@
                 class="topic-img"
                 loading="lazy"
                 alt="Artículo: Desarrollador Fullstack"
+                width="250"
+                height="158"
               />
               <div class="topic-info">
                 <span class="topic-date">17/11/2022</span>
@@ -369,6 +410,8 @@
                 class="topic-img"
                 loading="lazy"
                 alt="Artículo: Desarrollador Fullstack"
+                width="250"
+                height="158"
               />
               <div class="topic-info">
                 <span class="topic-date">17/11/2022</span>
@@ -380,9 +423,64 @@
         </div>
       </section>
     </main>
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="contact-container">
+        <h2 id="contact-title" class="contact-title-text">CONTACT</h2>
+        <p class="contact-placeholder">Sección de contacto — próximamente.</p>
+      </div>
+    </section>
 
+    <!-- CTA -->
+    <section id="contact-cta" aria-labelledby="cta-title">
+      <div class="cta-container">
+        <p class="cta-eyebrow">READY TO BUILD SOMETHING GREAT?</p>
+        <h2 id="cta-title" class="cta-title">LET'S WORK<br />TOGETHER</h2>
+        <a href="#contact" class="cta-btn">GET IN TOUCH</a>
+      </div>
+    </section>
     <footer class="site-footer">
-      <p>
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img
+            src="img/logo-outline.svg"
+            class="footer-logo"
+            alt="Logo Anderson Velez"
+            width="100"
+            height="125"
+          />
+          <p class="footer-tagline">Solutions Architect</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegación footer">
+          <a href="#home" class="footer-link">Home</a>
+          <a href="#about" class="footer-link">About</a>
+          <a href="#projects" class="footer-link">Work</a>
+          <a href="#parte-final" class="footer-link">Topics</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </nav>
+
+        <div class="footer-social">
+          <a
+            href="#"
+            class="footer-social-link"
+            aria-label="LinkedIn"
+            target="_blank"
+            rel="noopener"
+            >in</a
+          >
+          <a
+            href="#"
+            class="footer-social-link"
+            aria-label="GitHub"
+            target="_blank"
+            rel="noopener"
+            >gh</a
+          >
+          <a href="mailto:#" class="footer-social-link" aria-label="Email">@</a>
+        </div>
+      </div>
+      <p class="footer-copy">
         © 2026 Anderson Jovany Velez Alvarez. Todos los derechos reservados.
       </p>
     </footer>

@@ -3,117 +3,389 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio web-side</title>
+
+    <!-- SEO Básico -->
+    <title>Portafolio | Anderson Velez - Solutions Architect</title>
+    <meta
+      name="description"
+      content="Portafolio personal de Anderson Jovany Velez Alvarez, Solutions Architect y desarrollador apasionado por la tecnología, el diseño y el universo."
+    />
+    <meta name="author" content="Anderson Jovany Velez Alvarez" />
+    <meta
+      name="keywords"
+      content="portafolio, desarrollador, solutions architect, diseño web, frontend, tecnología"
+    />
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portafolio | Anderson Velez" />
+    <meta
+      property="og:description"
+      content="Solutions Architect y desarrollador apasionado por la tecnología y el diseño."
+    />
+    <meta property="og:image" content="img/banner.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Portafolio | Anderson Velez" />
+    <meta
+      name="twitter:description"
+      content="Solutions Architect y desarrollador apasionado por la tecnología y el diseño."
+    />
+    <meta name="twitter:image" content="img/banner.webp" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
     <div id="loader">
       <div class="logo-loader-container">
-        <img
-          src="img/logo-outline.svg?v=1"
-          class="logo-outline"
-          alt="logo borde"
-        />
-        <div class="logo-fill-box">
-          <img src="img/logo.svg?v=3" class="logo-solid" alt="logo lleno" />
-        </div>
-        <div class="logo-lleno">
-          <img src="img/logo.svg?v=3" alt="logo-lleno-img" />
-        </div>
+        <svg
+          class="logo-svg"
+          viewBox="0 0 100 125"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <clipPath id="logo-perfect-clip">
+              <path
+                d="M63.6063 64.1928L50.0825 88.0701L36.5028 64.2075H11.1842L0 82.6272L25.6787 82.6424L50.0445 124.863L74.4005 82.6666L99.9957 82.6416L88.9005 64.1928H63.6063ZM64.9988 66.5823H87.5492L95.773 80.2562L73.0201 80.2789L50.0448 120.083L27.0588 80.2539L4.24426 80.2403L12.5286 66.597H35.1135L50.0874 92.9094L64.9988 66.5823Z"
+              />
+              <path
+                d="M50.1318 1.52588e-05L0.00115967 82.6274L27.058 82.6439L50.0825 42.8376L73.0198 82.6686L100 82.6413L50.1318 1.52588e-05ZM50.1263 4.6153L95.7704 80.2561L74.4002 80.278L50.0871 38.0578L25.6802 80.2538L4.24341 80.2409L50.1263 4.6153Z"
+              />
+              <path
+                d="M50.0791 95.9951L64.5029 70.8467L70.4824 81.0996L50.0254 116L29.6064 81.0303L35.5908 70.8252L50.0791 95.9951ZM24.4512 78.6426L7 78.6367L13.2217 68.5H30.3838L24.4512 78.6426ZM86.7812 68.5L93 78.6367L75.5527 78.6426L69.6465 68.5H86.7812ZM83.2559 62.2119H66.2744L50.1338 34.667L33.79 62.2256H16.7637L50.1201 8L83.2559 62.2119Z"
+              />
+            </clipPath>
+          </defs>
+
+          <g class="logo-bg-lines">
+            <path
+              d="M63.6063 64.1928L50.0825 88.0701L36.5028 64.2075H11.1842L0 82.6272L25.6787 82.6424L50.0445 124.863L74.4005 82.6666L99.9957 82.6416L88.9005 64.1928H63.6063ZM64.9988 66.5823H87.5492L95.773 80.2562L73.0201 80.2789L50.0448 120.083L27.0588 80.2539L4.24426 80.2403L12.5286 66.597H35.1135L50.0874 92.9094L64.9988 66.5823Z"
+            />
+            <path
+              d="M50.1318 1.52588e-05L0.00115967 82.6274L27.058 82.6439L50.0825 42.8376L73.0198 82.6686L100 82.6413L50.1318 1.52588e-05ZM50.1263 4.6153L95.7704 80.2561L74.4002 80.278L50.0871 38.0578L25.6802 80.2538L4.24341 80.2409L50.1263 4.6153Z"
+            />
+            <path
+              d="M50.0791 95.9951L64.5029 70.8467L70.4824 81.0996L50.0254 116L29.6064 81.0303L35.5908 70.8252L50.0791 95.9951ZM24.4512 78.6426L7 78.6367L13.2217 68.5H30.3838L24.4512 78.6426ZM86.7812 68.5L93 78.6367L75.5527 78.6426L69.6465 68.5H86.7812ZM83.2559 62.2119H66.2744L50.1338 34.667L33.79 62.2256H16.7637L50.1201 8L83.2559 62.2119Z"
+            />
+          </g>
+
+          <g clip-path="url(#logo-perfect-clip)">
+            <rect class="logo-fill-bar" x="0" y="0" width="100" height="125" />
+          </g>
+        </svg>
       </div>
     </div>
 
     <header class="top-nav">
-      <img src="img/logo.svg?v=3" class="nav-logo" alt="logo" />
-      <img src="img/menu-icon.svg" class="nav-menu" alt="menu" />
+      <button
+        id="logo-btn"
+        class="nav-btn"
+        aria-label="Información del portafolio"
+      >
+        <img src="img/logo-outline.svg" class="nav-logo" alt="Logo" />
+      </button>
+      <button
+        id="menu-btn"
+        class="nav-btn"
+        aria-label="Abrir menú de navegación"
+      >
+        <img src="img/menu-icon.svg" class="nav-menu" alt="Menú" />
+      </button>
     </header>
 
-    <section id="home">
-      <img src="img/banner.png" class="home-bg" alt="Fondo" />
-      <div class="dark-overlay"></div>
-
-      <div class="scroll-down-center">
-        <img src="img/scroll-indicator.svg" alt="Bajar" />
-      </div>
-
-      <div class="carrusel-corner">
-        <div class="einstein-container">
-          <img src="img/Carrusel.png" class="einstein-img" alt="Einstein" />
-
-          <div class="einstein-concealer"></div>
-
-          <div class="einstein-line"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="about-container">
-        <!-- TÍTULO EN TEXTO (activar cuando se tenga la fuente MADE Future X) -->
-        <!-- <h2 class="about-title-text">About Me</h2> -->
-        <img src="img/About me.png" class="about-title" alt="About Me" />
-
-        <p class="about-text">
-          An unconventional, disruptive, passionate, and big enthusiast geek, in
-          love with technology industry and design trends. I have a long variety
-          of interests and as you can see here, I have a fascination about the
-          cosmos and all-around the universe, this blows my mind.
+    <!-- MODAL INFO -->
+    <div id="info-modal" class="modal-overlay">
+      <div class="modal-box">
+        <button class="modal-close" id="modal-close" aria-label="Cerrar modal">
+          &times;
+        </button>
+        <h3 class="modal-name">Anderson Jovany Velez Alvarez</h3>
+        <p class="modal-text">
+          Portafolio personal de Anderson Jovany Velez Alvarez, desarrollador y
+          Solutions Architect apasionado por la tecnología, el diseño y el
+          universo. Una colección de experiencias profesionales construidas con
+          creatividad y propósito.
         </p>
-        <p class="about-text">
-          I'm a tireless-learner person, this is my number one hobbie and it's
-          the reason why my career has that diverse experience, I had worked in
-          many different projects in my professional adventure (national and
-          international companies, digital agencies, startups) in hundreds of
-          projects focused on various industrial areas (tourism, food, drinks,
-          energy, ecommerce, advertising, finance, non-profit, realty) helping
-          them to grow and improve their processes and commercial activities
-          with technology and design.
+        <p class="modal-creator">
+          Creado por <span>Sebastian Velez Alvarez</span>
         </p>
+      </div>
+    </div>
 
+    <!-- MENU NAV -->
+    <nav id="side-menu" class="side-menu" aria-label="Navegación principal">
+      <button class="menu-close" id="menu-close" aria-label="Cerrar menú">
+        &times;
+      </button>
+      <ul class="menu-list">
+        <li><a href="#home" class="menu-link">Home</a></li>
+        <li><a href="#about" class="menu-link">About</a></li>
+        <li><a href="#projects" class="menu-link">Work</a></li>
+        <li><a href="#parte-final" class="menu-link">Topics</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="home" aria-label="Portada">
         <img
-          src="img/about-me-graph.png"
-          class="about-graph"
-          alt="Abuot Me Graph"
+          src="img/banner.webp"
+          class="home-bg desktop-only"
+          alt="Fondo cósmico de portada"
         />
-        <div class="scroll-down-about">
+        <img
+          src="img/home-portada-img-full-res_1.webp"
+          class="home-bg mobile-only"
+          alt="Fondo cósmico de portada"
+        />
+
+        <a href="#about" class="scroll-down-center" aria-label="Bajar a About">
+          <img src="img/scroll-indicator.svg" alt="" />
+        </a>
+        <div class="banner-diffusor" aria-hidden="true"></div>
+
+        <div class="carrusel-corner">
+          <div class="einstein-container">
+            <img
+              src="img/Carrusel.png"
+              class="einstein-img"
+              alt="Retrato de Einstein con frase inspiradora"
+            />
+            <div class="einstein-concealer"></div>
+            <div class="einstein-line"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <div class="about-container">
+          <h2 id="about-title" class="about-title-text">ABOUT ME</h2>
+
+          <p class="about-text">
+            An unconventional, disruptive, passionate, and big enthusiast geek,
+            in love with technology industry and design trends. I have a long
+            variety of interests and as you can see here, I have a fascination
+            about the cosmos and all-around the universe, this blows my mind.
+          </p>
+          <p class="about-text">
+            I'm a tireless-learner person, this is my number one hobbie and it's
+            the reason why my career has that diverse experience, I had worked
+            in many different projects in my professional adventure (national
+            and international companies, digital agencies, startups) in hundreds
+            of projects focused on various industrial areas (tourism, food,
+            drinks, energy, ecommerce, advertising, finance, non-profit, realty)
+            helping them to grow and improve their processes and commercial
+            activities with technology and design.
+          </p>
+
           <img
-            src="img/scroll-indicator.svg"
-            class="arrow-bounce"
-            alt="Bajar"
+            src="img/about-me-graph.png"
+            class="about-graph"
+            loading="lazy"
+            alt="Retrato de Anderson Velez en triángulo invertido"
           />
+          <a
+            href="#projects"
+            class="scroll-down-about"
+            aria-label="Bajar a Work"
+          >
+            <img src="img/scroll-indicator.svg" class="arrow-bounce" alt="" />
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="projects">
-      <div class="projects-container">
-        <img src="img/Frame 16.png" class="projects-frame" alt="Frame" />
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="projects-container">
+          <h2 id="projects-title" class="projects-title-text">MY WORK</h2>
 
-        <div class="scene">
-  <div class="caja-3d">
-    <div class="cara frente"></div>
-    <div class="cara atras"></div>
-    <div class="cara izquierda"></div>
-    <div class="cara derecha"></div>
-    <div class="cara arriba"></div>
-  </div>
-</div>
-        </svg>
-        <div class="scroll-down-projects">
-          <img src="img/scroll-indicator.svg" alt="Bajar" />
+          <svg
+            class="caja-3d-svg"
+            viewBox="0 -30 330 260"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <g transform="translate(54, -7)">
+              <path
+                d="M217.073 18.9219L110.233 58.1797L1.9502 18.9219L110.233 0.506836L217.073 18.9219Z"
+                stroke="#D7D8F4"
+                stroke-width="1"
+                fill="none"
+              />
+            </g>
+            <g transform="translate(54, -7)">
+              <path
+                d="M217.657 95.8789L110.232 165.715L1.35547 95.8789L110.233 77.3623L217.657 95.8789Z"
+                stroke="#D7D8F4"
+                stroke-width="1"
+                fill="none"
+              />
+            </g>
+            <g transform="translate(55, 12)">
+              <path
+                d="M0.5 77.5676V0.71167L109.265 39.9082V146.738L0.5 77.5676Z"
+                stroke="#D7D8F4"
+                stroke-width="1"
+                fill="none"
+              />
+            </g>
+            <g transform="translate(163, 12)">
+              <path
+                d="M109.265 77.5676V0.71167L0.5 39.9082V146.738L109.265 77.5676Z"
+                stroke="#D7D8F4"
+                stroke-width="1"
+                fill="none"
+              />
+            </g>
+          </svg>
+
+          <h3 class="projects-subtitle">SOLUTIONS ARCHITECT</h3>
+          <p class="projects-text">
+            Providing the most efficient and accurate software suggestions with
+            a wide and clear business approach, matching the company needs using
+            the product strategies and enterprise objectives. In addition of
+            carrying meticulous analysis out to the emergent requirements to
+            discover the possible touch points, risks or any inconvenient side
+            effects to the existent systems and share those as modify
+            suggestions or improvements, suppling the possible activities to be
+            executed, in order to choose the best way to tackle those and
+            prevent negative user experience impacts and/or organization
+            operations lags.
+          </p>
+          <a
+            href="#parte-final"
+            class="scroll-down-projects"
+            aria-label="Bajar a Topics"
+          >
+            <img src="img/scroll-indicator.svg" alt="" />
+          </a>
         </div>
-      </div>
-      <img src="img/inter-pages.png" class="inter-pages" alt="Inter pages" />
-    </section>
+        <img
+          src="img/actions-banner.webp"
+          class="actions-banner desktop-only"
+          loading="lazy"
+          alt="Frase: Actions speak louder than words"
+        />
+        <img
+          src="img/actions-banner-mobile.png"
+          class="actions-banner mobile-only"
+          loading="lazy"
+          alt="Frase: Actions speak louder than words"
+        />
+      </section>
 
-    <section id="parte-final">
-      <div class="frame-final">
-        <img src="img/Frame 17.png" class="titulo-final" alt="frame-final" />
-      </div>
-    </section>
+      <section id="parte-final" aria-labelledby="topics-title">
+        <div class="topics-container">
+          <h2 id="topics-title" class="topics-title-text">TOPICS</h2>
 
-    <script src="script.js"></script>
+          <div class="topics-category">
+            <h3 class="category-title">Relevants</h3>
+
+            <a href="#" class="topic-card">
+              <img
+                src="img/topic-1.png"
+                class="topic-img"
+                loading="lazy"
+                alt="Artículo: Desarrollador Fullstack"
+              />
+              <div class="topic-info">
+                <span class="topic-date">17/11/2022</span>
+                <h4 class="topic-title">Desarrollador Fullstack</h4>
+                <p class="topic-subtitle">¿una utopía, una verdad...</p>
+              </div>
+            </a>
+
+            <a href="#" class="topic-card">
+              <img
+                src="img/topic-1.png"
+                class="topic-img"
+                loading="lazy"
+                alt="Artículo: Desarrollador Fullstack"
+              />
+              <div class="topic-info">
+                <span class="topic-date">17/11/2022</span>
+                <h4 class="topic-title">Desarrollador Fullstack</h4>
+                <p class="topic-subtitle">¿una utopía, una verdad...</p>
+              </div>
+            </a>
+
+            <a href="#" class="topic-card">
+              <img
+                src="img/topic-1.png"
+                class="topic-img"
+                loading="lazy"
+                alt="Artículo: Desarrollador Fullstack"
+              />
+              <div class="topic-info">
+                <span class="topic-date">17/11/2022</span>
+                <h4 class="topic-title">Desarrollador Fullstack</h4>
+                <p class="topic-subtitle">¿una utopía, una verdad...</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="topics-category">
+            <h3 class="category-title">Archive</h3>
+
+            <a href="#" class="topic-card">
+              <img
+                src="img/topic-1.png"
+                class="topic-img"
+                loading="lazy"
+                alt="Artículo: Desarrollador Fullstack"
+              />
+              <div class="topic-info">
+                <span class="topic-date">17/11/2022</span>
+                <h4 class="topic-title">Desarrollador Fullstack</h4>
+                <p class="topic-subtitle">¿una utopía, una verdad...</p>
+              </div>
+            </a>
+
+            <a href="#" class="topic-card">
+              <img
+                src="img/topic-1.png"
+                class="topic-img"
+                loading="lazy"
+                alt="Artículo: Desarrollador Fullstack"
+              />
+              <div class="topic-info">
+                <span class="topic-date">17/11/2022</span>
+                <h4 class="topic-title">Desarrollador Fullstack</h4>
+                <p class="topic-subtitle">¿una utopía, una verdad...</p>
+              </div>
+            </a>
+
+            <a href="#" class="topic-card">
+              <img
+                src="img/topic-1.png"
+                class="topic-img"
+                loading="lazy"
+                alt="Artículo: Desarrollador Fullstack"
+              />
+              <div class="topic-info">
+                <span class="topic-date">17/11/2022</span>
+                <h4 class="topic-title">Desarrollador Fullstack</h4>
+                <p class="topic-subtitle">¿una utopía, una verdad...</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        © 2026 Anderson Jovany Velez Alvarez. Todos los derechos reservados.
+      </p>
+    </footer>
+    <script src="script.js" defer></script>
   </body>
 </html>

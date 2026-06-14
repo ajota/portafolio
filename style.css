@@ -106,15 +106,6 @@ a {
   max-width: 700px;
 }
 
-.footer-container {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-}
-
 /* ============================================================
    5. COMPONENTS
    Componentes UI específicos del proyecto
@@ -195,7 +186,7 @@ a {
 .side-menu {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: 280px;
   height: 100vh;
   height: 100dvh;
@@ -206,13 +197,14 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: right 0.4s ease;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
 .side-menu.active {
-  right: 0;
+  transform: translateX(0);
 }
 
 .menu-close {
@@ -527,9 +519,10 @@ a {
 
 .actions-banner {
   width: 100%;
+  height: auto;
   margin-top: auto;
   margin-bottom: 0;
-  object-fit: cover;
+  display: block;
 }
 
 .actions-banner.desktop-only {
@@ -640,95 +633,54 @@ a {
   line-height: 1.3;
 }
 
-/* --- SECCIÓN CONTACT --- */
-#contact {
-  background: var(--blue-about);
-  padding: 120px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.contact-title-text {
-  font-family: "MADE Future X HEADER", sans-serif;
-  font-size: 36px;
-  letter-spacing: 8px;
-  color: rgba(215, 216, 244, 1);
-  text-transform: uppercase;
-}
-
-.contact-placeholder {
-  font-family: "MADE Future X", sans-serif;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 1px;
-}
-
-/* --- CTA --- */
-#contact-cta {
-  background: var(--blue-dark);
-  padding: 120px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-top: 1px solid rgba(84, 164, 255, 0.15);
-}
-
-.cta-eyebrow {
-  font-family: "MADE Future X", sans-serif;
-  font-size: 13px;
-  letter-spacing: 4px;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-
-.cta-title {
-  font-family: "MADE Future X HEADER", sans-serif;
-  font-size: 52px;
-  letter-spacing: 8px;
-  color: rgba(215, 216, 244, 1);
-  text-transform: uppercase;
-  line-height: 1.1;
-}
-
-.cta-btn {
-  margin-top: 12px;
-  padding: 16px 48px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-family: "MADE Future X HEADER", sans-serif;
-  font-size: 14px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
-
-.cta-btn:hover {
-  background: var(--accent);
-  color: var(--blue-dark);
-}
-
 /* --- FOOTER --- */
 .site-footer {
   background: var(--blue-dark);
   border-top: 1px solid rgba(84, 164, 255, 0.2);
-  padding: 50px 20px 30px;
+  padding: 90px 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  padding-bottom: 60px;
+}
+
+.footer-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer-cta-title {
+  font-family: "MADE Future X HEADER", sans-serif;
+  font-size: 28px;
+  letter-spacing: 6px;
+  color: rgba(215, 216, 244, 1);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.footer-cta-email {
+  font-family: "MADE Future X", sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-cta-email:hover {
+  opacity: 0.7;
 }
 
 .footer-brand {
@@ -752,30 +704,9 @@ a {
   text-transform: uppercase;
 }
 
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-}
-
-.footer-link {
-  font-family: "MADE Future X HEADER", sans-serif;
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-  color: var(--accent);
-}
-
 .footer-social {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .footer-social-link {
@@ -802,12 +733,57 @@ a {
   color: var(--accent);
 }
 
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.footer-link {
+  font-family: "MADE Future X HEADER", sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent);
+}
+
 .footer-copy {
   font-family: "MADE Future X", sans-serif;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.25);
   letter-spacing: 1px;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+
+  .footer-cta {
+    text-align: left;
+    flex: 1;
+  }
+
+  .footer-brand {
+    flex: 0 0 auto;
+  }
+
+  .footer-social {
+    flex: 1;
+    justify-content: flex-end;
+  }
 }
 
 /* ============================================================
@@ -1001,6 +977,7 @@ a {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-top: 40px;
   }
   .scroll-down-projects img {
     width: 240px;
@@ -1009,8 +986,8 @@ a {
   .actions-banner {
     margin-top: 40px;
     width: 100%;
+    height: auto;
     display: block;
-    object-fit: cover;
   }
 
   /* TOPICS */
@@ -1039,14 +1016,6 @@ a {
     font-size: 12px;
   }
 
-  /* CTA */
-  #contact-cta {
-    padding: 80px 20px;
-  }
-  .cta-title {
-    font-size: 32px;
-    letter-spacing: 4px;
-  }
 }
 
 /* --- TABLET (768px+) --- */
@@ -1131,15 +1100,6 @@ a {
     display: none;
   }
 
-  /* FOOTER */
-  .footer-container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer-brand {
-    align-items: center;
-  }
 }
 
 /* --- PC (1024px+) --- */
@@ -1352,9 +1312,10 @@ a {
   color: var(--accent);
 }
 
-.cta-btn:focus-visible {
+.footer-cta-email:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 6px;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .topic-card:focus-visible {
